@@ -22,6 +22,8 @@
     НАПРИМЕР: Было - permission(23, 10); Меняете на - permission(generateRandomAge(), 10);*/
 //Создать возвращаемый метод с названием “permission”, который будет принимать 2 входящих параметра - возраст человека и температуру на улице, и возвращать результат в виде строки.
 
+import java.util.Random;
+
 public class Main {
     public static String permission(int age, int temperature) {
         if (age >= 20 && age <= 45 && temperature >= -20 && temperature <= 30) {
@@ -45,12 +47,12 @@ public class Main {
 
 //- в остальных случаях метод должен возвращать результат - “Оставайтесь дома”;
 
-    // Method to generate a random age between 0 and 100
     public static int generateRandomAge() {
-        return (int) (Math.random() * 101);
+        Random random = new Random();
+        int x = random.nextInt(100) + 1;
+        return x;
     }
 
-    // Main method to test the permission method with different inputs
     public static void main(String[] args) {
         System.out.println(permission(23, 10));  // Example 1
         System.out.println(permission(15, 15));  // Example 2
@@ -58,7 +60,8 @@ public class Main {
         System.out.println(permission(30, -15)); // Example 4
         System.out.println(permission(60, -5));  // Example 5
 
-        // Test with randomly generated ages
+        System.out.println("----------");
+
         System.out.println(permission(generateRandomAge(), 10));
         System.out.println(permission(generateRandomAge(), 20));
         System.out.println(permission(generateRandomAge(), 30));
